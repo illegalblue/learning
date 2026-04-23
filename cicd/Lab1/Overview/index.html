@@ -1,0 +1,1167 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Lab_Setup_Guide/">
+      
+      
+        <link rel="next" href="../Phase1_CI_Pipeline/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Overview - DevOps Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#overview" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="DevOps Docs" class="md-header__button md-logo" aria-label="DevOps Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DevOps Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="DevOps Docs" class="md-nav__button md-logo" aria-label="DevOps Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    DevOps Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI/CD Lab
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CI/CD Lab
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lab_Setup_Guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#end-goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        End Goal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-ci-pipeline-fast-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: CI Pipeline (Fast Feedback)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-integration-pipeline-system-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Integration Pipeline (System Validation)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-cd-pipeline-build-deploy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: CD Pipeline (Build &amp; Deploy)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mistakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Mistakes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mental-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mental Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-progress-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Progress Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Phase
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Phase1_CI_Pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 1: CI Pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Phase2_Integration_Pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2: Integration Pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Phase3_CD_Ansible_Deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 3: CD Ansible Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Phase4_Hardening_and_Scaling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 4: Hardening and Scaling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#end-goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        End Goal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-ci-pipeline-fast-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: CI Pipeline (Fast Feedback)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-integration-pipeline-system-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Integration Pipeline (System Validation)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-cd-pipeline-build-deploy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: CD Pipeline (Build &amp; Deploy)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mistakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Mistakes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mental-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mental Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-progress-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Progress Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Phase
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="lab-building-a-complete-cicd-devops-pipeline">Lab: Building a Complete CI/CD DevOps Pipeline</h1>
+<hr />
+<p><a href="../Lab_Setup_Guide/">Lab Setup</a></p>
+<h2 id="overview">Overview</h2>
+<p>In this lab, you will build a <strong>realistic DevOps pipeline setup</strong> used in modern applications.</p>
+<p>You will implement:</p>
+<ul>
+<li>CI (Continuous Integration)</li>
+<li>Integration Testing Pipeline</li>
+<li>CD (Continuous Deployment)</li>
+<li>Deployment using Ansible</li>
+</ul>
+<p>This lab focuses on <strong>clean architecture</strong>, not tool overload.</p>
+<hr />
+<h2 id="end-goal">End Goal</h2>
+<p>By the end of this lab, you will:</p>
+<ul>
+<li>Validate code automatically on every commit</li>
+<li>Test your system with real dependencies (DB, Redis)</li>
+<li>Build and push Docker images</li>
+<li>Deploy to staging and production using Ansible</li>
+</ul>
+<hr />
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Make sure you have:</p>
+<ul>
+<li>[ ] Python installed</li>
+<li>[ ] Docker &amp; Docker Compose installed</li>
+<li>[ ] Jenkins running</li>
+<li>[ ] Git repository ready</li>
+<li>[ ] Basic understanding of APIs</li>
+</ul>
+<hr />
+<h2 id="architecture-overview">Architecture Overview</h2>
+<pre><code>Feature Branch
+   ↓
+[ CI Pipeline ]
+   ↓
+Develop Branch
+   ↓
+[ Integration Pipeline ]
+   ↓
+Main Branch
+   ↓
+[ CD Pipeline ]
+   ↓
+Ansible → Staging → Production
+</code></pre>
+<hr />
+<h2 id="step-1-ci-pipeline-fast-feedback">Step 1: CI Pipeline (Fast Feedback)</h2>
+<h4 id="purpose">Purpose</h4>
+<p>Validate code quickly before merging.</p>
+<hr />
+<h3 id="trigger">Trigger</h3>
+<ul>
+<li>Every push</li>
+<li>Pull Requests (feature branches)</li>
+</ul>
+<hr />
+<h3 id="stages">Stages</h3>
+<ul>
+<li>Checkout code</li>
+<li>Install dependencies</li>
+<li>Linting</li>
+<li>Unit testing</li>
+<li>Static code analysis</li>
+</ul>
+<hr />
+<h3 id="example-commands">Example Commands</h3>
+<pre><code class="language-bash">pip install -r requirements.txt
+flake8 .
+pytest
+</code></pre>
+<hr />
+<h3 id="tools-used">Tools Used</h3>
+<ul>
+<li>Jenkins</li>
+<li>pytest</li>
+<li>flake8</li>
+<li>SonarQube (optional)</li>
+</ul>
+<hr />
+<h3 id="output">Output</h3>
+<ul>
+<li>Pass / Fail only</li>
+</ul>
+<blockquote>
+<p>No Docker
+No Deployment</p>
+</blockquote>
+<hr />
+<h3 id="checklist">Checklist</h3>
+<ul>
+<li>[ ] Pipeline runs on every commit</li>
+<li>[ ] Execution time &lt; 5 minutes</li>
+<li>[ ] No external dependencies</li>
+<li>[ ] Failing code blocks merge</li>
+</ul>
+<hr />
+<h2 id="step-2-integration-pipeline-system-validation">Step 2: Integration Pipeline (System Validation)</h2>
+<h3 id="purpose_1">Purpose</h3>
+<p>Test the <strong>real system</strong>, not isolated components.</p>
+<hr />
+<h3 id="trigger_1">Trigger</h3>
+<ul>
+<li>Merge into <code>develop</code> branch</li>
+</ul>
+<hr />
+<h3 id="stages_1">Stages</h3>
+<h4 id="1-start-environment">1. Start Environment</h4>
+<pre><code class="language-bash">docker-compose -f docker-compose.integration.yml up -d
+</code></pre>
+<h4 id="2-wait-for-services">2. Wait for Services</h4>
+<ul>
+<li>Ensure DB / Redis are ready</li>
+</ul>
+<h4 id="3-run-tests">3. Run Tests</h4>
+<pre><code class="language-bash">pytest tests/integration
+</code></pre>
+<p>Includes:</p>
+<ul>
+<li>API tests</li>
+<li>Database tests</li>
+</ul>
+<h4 id="4-tear-down">4. Tear Down</h4>
+<pre><code class="language-bash">docker-compose down
+</code></pre>
+<hr />
+<h3 id="tools-used_1">Tools Used</h3>
+<ul>
+<li>Docker</li>
+<li>Docker Compose</li>
+<li>Jenkins</li>
+<li>pytest</li>
+</ul>
+<hr />
+<h3 id="output_1">Output</h3>
+<ul>
+<li>Verified working system</li>
+</ul>
+<blockquote>
+<p>No deployment yet</p>
+</blockquote>
+<hr />
+<h3 id="checklist_1">Checklist</h3>
+<ul>
+<li>[ ] Uses real services (Postgres, Redis)</li>
+<li>[ ] No mocks</li>
+<li>[ ] Environment reproducible</li>
+<li>[ ] Clean teardown after tests</li>
+</ul>
+<hr />
+<h2 id="step-3-cd-pipeline-build-deploy">Step 3: CD Pipeline (Build &amp; Deploy)</h2>
+<h3 id="purpose_2">Purpose</h3>
+<p>Package and deploy your application.</p>
+<hr />
+<h3 id="trigger_2">Trigger</h3>
+<ul>
+<li>Merge into <code>main</code> branch</li>
+</ul>
+<hr />
+<h3 id="stages_2">Stages</h3>
+<h4 id="1-build-docker-images">1. Build Docker Images</h4>
+<pre><code class="language-bash">docker build -t myapp-api .
+docker build -t myapp-worker .
+</code></pre>
+<hr />
+<h4 id="2-tag-images">2. Tag Images</h4>
+<pre><code class="language-bash">docker tag myapp-api myrepo/myapp-api:&lt;commit-sha&gt;
+</code></pre>
+<hr />
+<h4 id="3-push-to-registry">3. Push to Registry</h4>
+<pre><code class="language-bash">docker push myrepo/myapp-api:&lt;tag&gt;
+</code></pre>
+<hr />
+<h4 id="4-deploy-using-ansible">4. Deploy using Ansible</h4>
+<hr />
+<h3 id="role-of-ansible">Role of Ansible</h3>
+<p>Ansible handles:</p>
+<ul>
+<li>Server preparation</li>
+<li>Deployment execution</li>
+<li>Service management</li>
+</ul>
+<hr />
+<h3 id="what-ansible-does">What Ansible Does</h3>
+<p>On staging &amp; production:</p>
+<ul>
+<li>Pull latest images</li>
+<li>Stop old containers</li>
+<li>Start new containers</li>
+</ul>
+<pre><code class="language-bash">docker-compose up -d
+</code></pre>
+<ul>
+<li>Manage environment variables</li>
+<li>Ensure services are healthy</li>
+</ul>
+<hr />
+<h3 id="deployment-flow">Deployment Flow</h3>
+<pre><code>Jenkins (CD Pipeline)
+   ↓
+Build Docker Image
+   ↓
+Push to Registry
+   ↓
+Run Ansible Playbook
+   ↓
+Deploy to Staging
+   ↓
+(Optional Approval)
+   ↓
+Deploy to Production
+</code></pre>
+<hr />
+<h3 id="tools-used_2">Tools Used</h3>
+<ul>
+<li>Jenkins</li>
+<li>Docker</li>
+<li>Container Registry</li>
+<li>Ansible</li>
+</ul>
+<hr />
+<h3 id="checklist_2">Checklist</h3>
+<ul>
+<li>[ ] Images are versioned (no latest)</li>
+<li>[ ] Ansible is idempotent</li>
+<li>[ ] Rollback strategy exists</li>
+<li>[ ] Separate staging &amp; production</li>
+</ul>
+<hr />
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="security">Security</h3>
+<ul>
+<li>[ ] Use SSH keys only</li>
+<li>[ ] No root login</li>
+<li>[ ] Secrets not stored in Git</li>
+</ul>
+<p>Options:</p>
+<ul>
+<li>Ansible Vault</li>
+<li>Environment variables</li>
+</ul>
+<hr />
+<h3 id="persistence">Persistence</h3>
+<ul>
+<li>[ ] Use Docker volumes for DB</li>
+<li>[ ] Backup strategy exists</li>
+</ul>
+<hr />
+<h3 id="scalability">Scalability</h3>
+<ul>
+<li>[ ] Multiple containers supported</li>
+<li>[ ] Reverse proxy (Nginx)</li>
+</ul>
+<hr />
+<h3 id="availability">Availability</h3>
+<ul>
+<li>[ ] Health checks configured</li>
+<li>[ ] Restart policies enabled</li>
+<li>[ ] Staging tested before production</li>
+</ul>
+<hr />
+<h2 id="common-mistakes">Common Mistakes</h2>
+<p>Avoid:</p>
+<ul>
+<li>[ ] Adding too many tools at once</li>
+<li>[ ] Jumping to Kubernetes early</li>
+<li>[ ] Skipping integration testing</li>
+</ul>
+<blockquote>
+<p>Focus on <strong>clean pipeline separation</strong></p>
+</blockquote>
+<hr />
+<h2 id="mental-model">Mental Model</h2>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Tool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Code Validation</td>
+<td>CI</td>
+</tr>
+<tr>
+<td>System Testing</td>
+<td>Docker</td>
+</tr>
+<tr>
+<td>Packaging</td>
+<td>Docker</td>
+</tr>
+<tr>
+<td>Deployment</td>
+<td>Ansible</td>
+</tr>
+<tr>
+<td>Infrastructure</td>
+<td>Terraform</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="final-progress-checklist">Final Progress Checklist</h2>
+<ul>
+<li>[ ] CI Pipeline working</li>
+<li>[ ] Integration Pipeline working</li>
+<li>[ ] Dockerized application</li>
+<li>[ ] CD Pipeline configured</li>
+<li>[ ] Ansible deployment ready</li>
+<li>[ ] Staging deployment successful</li>
+</ul>
+<hr />
+<h2 id="next-phase">Next Phase</h2>
+<p>Proceed to:</p>
+<p><a href="../Phase1_CI_Pipeline/">Phase 1: Integration Environment</a></p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

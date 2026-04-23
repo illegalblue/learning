@@ -1,0 +1,1182 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Phase2_Integration_Pipeline/">
+      
+      
+        <link rel="next" href="../Phase4_Hardening_and_Scaling/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Phase 3: CD Ansible Deployment - DevOps Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#goal" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="DevOps Docs" class="md-header__button md-logo" aria-label="DevOps Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DevOps Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Phase 3: CD Ansible Deployment
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="DevOps Docs" class="md-nav__button md-logo" aria-label="DevOps Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    DevOps Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI/CD Lab
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CI/CD Lab
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Lab_Setup_Guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Phase1_CI_Pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 1: CI Pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Phase2_Integration_Pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 2: Integration Pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 3: CD Ansible Deployment
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 3: CD Ansible Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Goal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-prepare-node1-target-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Prepare Node1 (Target Server)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-setup-ansible-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Setup Ansible Control
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-ansible-playbook-server-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Ansible Playbook (Server Setup)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-docker-registry-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4 — Docker Registry Setup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-ansible-deployment-playbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5 — Ansible Deployment Playbook
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-jenkins-cd-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6 — Jenkins CD Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-basic-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7 — Basic Security
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-idempotency-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8 — Idempotency Check
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-you-built" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You Built
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Phase
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Phase4_Hardening_and_Scaling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phase 4: Hardening and Scaling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Goal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-prepare-node1-target-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Prepare Node1 (Target Server)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-setup-ansible-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Setup Ansible Control
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-ansible-playbook-server-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Ansible Playbook (Server Setup)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-docker-registry-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4 — Docker Registry Setup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-ansible-deployment-playbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5 — Ansible Deployment Playbook
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-jenkins-cd-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6 — Jenkins CD Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-basic-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7 — Basic Security
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-idempotency-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8 — Idempotency Check
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-you-built" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You Built
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Phase
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="phase-3-cd-pipeline-with-ansible-build-push-deploy">Phase 3: CD Pipeline with Ansible (Build → Push → Deploy)</h1>
+<hr />
+<p><a href="../Phase2_Integration_Pipeline/">← Back to Phase 2</a></p>
+<h2 id="goal">Goal</h2>
+<p>Automate deployment of your application:</p>
+<ul>
+<li>Build Docker images</li>
+<li>Push to registry</li>
+<li>Deploy to staging (Node1) using Ansible</li>
+<li>Ensure repeatable, idempotent deployments</li>
+</ul>
+<hr />
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li><a href="../Phase2_Integration_Pipeline/">Phase 2</a> completed</li>
+<li>Jenkins pipeline working</li>
+<li>Node1 VM accessible via SSH</li>
+<li>Docker installed on Node1 (or will be installed via Ansible)</li>
+</ul>
+<hr />
+<h2 id="deployment-flow">Deployment Flow</h2>
+<pre><code>Merge to main
+     ↓
+Jenkins CD Pipeline
+     ↓
+Build Docker Image
+     ↓
+Push to Registry
+     ↓
+Run Ansible Playbook
+     ↓
+Deploy to Node1 (Staging)
+</code></pre>
+<hr />
+<h2 id="step-1-prepare-node1-target-server">Step 1 — Prepare Node1 (Target Server)</h2>
+<h3 id="create-deployment-user">Create Deployment User</h3>
+<p>SSH into Node1:</p>
+<pre><code class="language-bash">ssh &lt;your-user&gt;@node1
+</code></pre>
+<hr />
+<h3 id="create-user">Create user</h3>
+<pre><code class="language-bash">sudo adduser deployer
+</code></pre>
+<hr />
+<h3 id="add-sudo-access">Add sudo access</h3>
+<pre><code class="language-bash">sudo usermod -aG sudo deployer
+</code></pre>
+<hr />
+<h3 id="setup-ssh-directory">Setup SSH directory</h3>
+<pre><code class="language-bash">sudo mkdir -p /home/deployer/.ssh
+sudo chown -R deployer:deployer /home/deployer/.ssh
+sudo chmod 700 /home/deployer/.ssh
+</code></pre>
+<hr />
+<h3 id="add-public-key">Add Public Key</h3>
+<p>On your control machine:</p>
+<pre><code class="language-bash">ssh-copy-id deployer@node1
+</code></pre>
+<hr />
+<h3 id="disable-password-auth-basic-security">Disable password auth (basic security)</h3>
+<pre><code class="language-bash">sudo nano /etc/ssh/sshd_config
+</code></pre>
+<p>Set:</p>
+<pre><code>PasswordAuthentication no
+</code></pre>
+<p>Restart:</p>
+<pre><code class="language-bash">sudo systemctl restart ssh
+</code></pre>
+<hr />
+<h3 id="checklist">Checklist</h3>
+<ul>
+<li>[ ] Can SSH without password</li>
+<li>[ ] Non-root user created</li>
+<li>[ ] Sudo access works</li>
+<li>[ ] Password login disabled</li>
+</ul>
+<hr />
+<h2 id="step-2-setup-ansible-control">Step 2 — Setup Ansible Control</h2>
+<p>Run this on your <strong>Ansible container / host</strong></p>
+<hr />
+<h3 id="create-inventory">Create inventory</h3>
+<pre><code>ansible/inventory.ini
+</code></pre>
+<pre><code class="language-ini">[node1]
+node1 ansible_host=&lt;NODE1_IP&gt; ansible_user=deployer
+</code></pre>
+<hr />
+<h3 id="test-connection">Test connection</h3>
+<pre><code class="language-bash">ansible -i inventory.ini node1 -m ping
+</code></pre>
+<hr />
+<h3 id="checklist_1">Checklist</h3>
+<ul>
+<li>[ ] Ansible can reach Node1</li>
+<li>[ ] SSH works without password</li>
+</ul>
+<hr />
+<h2 id="step-3-ansible-playbook-server-setup">Step 3 — Ansible Playbook (Server Setup)</h2>
+<p><code>ansible/setup_node.yml</code></p>
+<pre><code class="language-yaml">- name: Setup Node1
+  hosts: node1
+  become: yes
+
+  tasks:
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+        update_cache: yes
+
+    - name: Enable Docker
+      systemd:
+        name: docker
+        enabled: yes
+        state: started
+
+    - name: Add deployer to docker group
+      user:
+        name: deployer
+        groups: docker
+        append: yes
+</code></pre>
+<hr />
+<h3 id="run">Run</h3>
+<pre><code class="language-bash">ansible-playbook -i inventory.ini ansible/setup_node.yml
+</code></pre>
+<hr />
+<h3 id="checklist_2">Checklist</h3>
+<ul>
+<li>[ ] Docker installed on Node1</li>
+<li>[ ] Docker service running</li>
+<li>[ ] User can run docker</li>
+</ul>
+<hr />
+<h2 id="step-4-docker-registry-setup">Step 4 — Docker Registry Setup</h2>
+<p>Use Docker Hub (simplest)</p>
+<hr />
+<h3 id="login">Login</h3>
+<pre><code class="language-bash">docker login
+</code></pre>
+<hr />
+<h3 id="tag-image">Tag image</h3>
+<pre><code class="language-bash">docker tag fastapi-app &lt;dockerhub-username&gt;/fastapi-app:latest
+</code></pre>
+<hr />
+<h3 id="push">Push</h3>
+<pre><code class="language-bash">docker push &lt;dockerhub-username&gt;/fastapi-app:latest
+</code></pre>
+<hr />
+<h3 id="checklist_3">Checklist</h3>
+<ul>
+<li>[ ] Image available in registry</li>
+<li>[ ] Pull works from Node1</li>
+</ul>
+<hr />
+<h2 id="step-5-ansible-deployment-playbook">Step 5 — Ansible Deployment Playbook</h2>
+<p><code>ansible/deploy.yml</code></p>
+<pre><code class="language-yaml">- name: Deploy FastAPI App
+  hosts: node1
+  become: yes
+
+  vars:
+    image_name: &quot;&lt;dockerhub-username&gt;/fastapi-app:latest&quot;
+
+  tasks:
+    - name: Pull latest image
+      docker_container:
+        name: fastapi-app
+        image: &quot;{{ image_name }}&quot;
+        state: started
+        restart_policy: always
+        ports:
+          - &quot;8000:8000&quot;
+</code></pre>
+<hr />
+<h3 id="run_1">Run</h3>
+<pre><code class="language-bash">ansible-playbook -i inventory.ini ansible/deploy.yml
+</code></pre>
+<hr />
+<h3 id="verify">Verify:</h3>
+<pre><code class="language-bash">curl http://&lt;NODE1_IP&gt;:8000/health
+</code></pre>
+<hr />
+<h3 id="checklist_4">Checklist</h3>
+<ul>
+<li>[ ] Container running on Node1</li>
+<li>[ ] App accessible via browser/curl</li>
+<li>[ ] Restart works automatically</li>
+</ul>
+<hr />
+<h2 id="step-6-jenkins-cd-pipeline">Step 6 — Jenkins CD Pipeline</h2>
+<p>Update your Jenkinsfile:</p>
+<hr />
+<pre><code class="language-groovy">stage('Build Docker Image') {
+    steps {
+        sh '''
+        docker build -t fastapi-app .
+        '''
+    }
+}
+
+stage('Tag Image') {
+    steps {
+        sh '''
+        docker tag fastapi-app &lt;dockerhub-username&gt;/fastapi-app:latest
+        '''
+    }
+}
+
+stage('Push Image') {
+    steps {
+        sh '''
+        docker push &lt;dockerhub-username&gt;/fastapi-app:latest
+        '''
+    }
+}
+
+stage('Deploy to Node1') {
+    steps {
+        sh '''
+        ansible-playbook -i ansible/inventory.ini ansible/deploy.yml
+        '''
+    }
+}
+</code></pre>
+<hr />
+<h3 id="checklist_5">Checklist</h3>
+<ul>
+<li>[ ] Pipeline runs on <code>main</code></li>
+<li>[ ] Image built and pushed</li>
+<li>[ ] Ansible deploy triggered</li>
+<li>[ ] App updated automatically</li>
+</ul>
+<hr />
+<h2 id="step-7-basic-security">Step 7 — Basic Security</h2>
+<ul>
+<li>Do NOT hardcode credentials</li>
+<li>
+<p>Use:</p>
+</li>
+<li>
+<p><code>.env</code> files</p>
+</li>
+<li>Ansible Vault (next phase)</li>
+</ul>
+<hr />
+<h3 id="checklist_6">Checklist</h3>
+<ul>
+<li>[ ] No secrets in repo</li>
+<li>[ ] SSH key-based auth only</li>
+<li>[ ] Non-root deployment</li>
+</ul>
+<hr />
+<h2 id="step-8-idempotency-check">Step 8 — Idempotency Check</h2>
+<p>Run deployment twice:</p>
+<pre><code class="language-bash">ansible-playbook -i inventory.ini ansible/deploy.yml
+</code></pre>
+<hr />
+<h3 id="expected">Expected:</h3>
+<ul>
+<li>No errors</li>
+<li>No duplicate containers</li>
+<li>Clean restart if needed</li>
+</ul>
+<hr />
+<h2 id="what-you-built">What You Built</h2>
+<p>You now have:</p>
+<ul>
+<li>Full CD pipeline</li>
+<li>Automated deployment using Ansible</li>
+<li>Real staging environment</li>
+<li>Repeatable infrastructure setup</li>
+</ul>
+<hr />
+<h2 id="final-checklist">Final Checklist</h2>
+<ul>
+<li>[ ] Node1 configured via Ansible</li>
+<li>[ ] Docker image built &amp; pushed</li>
+<li>[ ] Deployment automated</li>
+<li>[ ] App accessible externally</li>
+<li>[ ] Pipeline fully working</li>
+</ul>
+<hr />
+<h2 id="next-phase">Next Phase</h2>
+<p><a href="../Phase4_Hardening_and_Scaling/">Phase 4: Hardening &amp; Scaling</a></p>
+<ul>
+<li>Nginx reverse proxy</li>
+<li>Multiple containers</li>
+<li>Secrets management</li>
+<li>Basic monitoring</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
