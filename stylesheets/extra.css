@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+body {
+  font-family: 'Orbitron', sans-serif;
+}
+
+:root {
+  --md-primary-fg-color: #00f0ff;
+  --md-accent-fg-color: #ff00ff;
+}
+
+body {
+  background-color: #0b0f14;
+  color: #e6f1ff;
+}
+
+/* Header glow effect */
+.md-header {
+  box-shadow: 0 0 20px #00f0ff;
+}
+
+/* Links neon glow */
+a {
+  color: #00f0ff;
+  text-shadow: 0 0 5px #00f0ff;
+}
+
+/* Code blocks */
+code, pre {
+  background-color: #111827;
+  border: 1px solid #00f0ff;
+  box-shadow: 0 0 10px #00f0ff33;
+}
